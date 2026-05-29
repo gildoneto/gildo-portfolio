@@ -4,6 +4,7 @@ import { useRef, useState, type FormEvent } from "react";
 import { useLang } from "@/app/i18n/context";
 import translations from "@/app/i18n/translations";
 import { useReveal } from "@/app/hooks/useReveal";
+import { saveContact } from "@/app/lib/firestore";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -19,15 +20,15 @@ export function Contact() {
     if (status === "sending" || status === "success") return;
     setStatus("sending");
 
-    const data = Object.fromEntries(new FormData(e.currentTarget));
+    const fd = new FormData(e.currentTarget);
+    const name = fd.get("name") as string;
+    const email = fd.get("email") as string;
+    const whatsapp = (fd.get("whatsapp") as string) || undefined;
+    const project = fd.get("project") as string;
+    const message = (fd.get("message") as string) || undefined;
 
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      if (!res.ok) throw new Error("Request failed");
+      await saveContact({ name, email, whatsapp, project, message, lang });
       setStatus("success");
       formRef.current?.reset();
     } catch {
