@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 interface ContactPayload {
   name: string;
   email: string;
+  whatsapp?: string;
   project: string;
   message?: string;
 }
@@ -19,7 +20,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
 
-  const { name, email, project, message } = body as ContactPayload;
+  const { name, email, whatsapp, project, message } = body as ContactPayload;
 
   if (!name?.trim() || !email?.trim() || !project?.trim()) {
     return NextResponse.json(
@@ -38,7 +39,7 @@ export async function POST(request: Request) {
   //   const resend = new Resend(process.env.RESEND_API_KEY);
   //   await resend.emails.send({ from, to, subject, text });
 
-  console.log("[contact] new message", { name, email, project, message });
+  console.log("[contact] new message", { name, email, whatsapp, project, message });
 
   return NextResponse.json({ success: true });
 }

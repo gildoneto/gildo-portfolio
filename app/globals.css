@@ -22,6 +22,8 @@
   --color-proj-blue: oklch(0.64 0.2 250);
   --color-proj-violet: oklch(0.62 0.22 305);
   --color-proj-coral: oklch(0.62 0.22 25);
+  --color-proj-lime: oklch(0.72 0.2 115);
+  --color-proj-teal: oklch(0.62 0.18 200);
 
   /* Fonts — resolved from next/font CSS variables injected on <html> */
   --font-display: var(--font-barlow-condensed), Impact, sans-serif;

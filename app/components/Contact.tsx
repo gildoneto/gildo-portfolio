@@ -132,6 +132,22 @@ export function Contact() {
                 </div>
 
                 <div>
+                  <label htmlFor="whatsapp" className={labelClass}>
+                    {tx.fields.whatsapp}
+                    <span className="ml-1 normal-case tracking-normal opacity-50">
+                      {lang === "pt" ? "(opcional)" : "(optional)"}
+                    </span>
+                  </label>
+                  <input
+                    id="whatsapp"
+                    name="whatsapp"
+                    type="tel"
+                    placeholder={tx.placeholders.whatsapp}
+                    className={fieldClass}
+                  />
+                </div>
+
+                <div>
                   <label htmlFor="project" className={labelClass}>
                     {tx.fields.project}
                   </label>

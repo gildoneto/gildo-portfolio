@@ -1,40 +1,51 @@
 "use client";
 
 import { useLang } from "@/app/i18n/context";
-import translations, { projectsMeta, type ProjectColor } from "@/app/i18n/translations";
+import translations, {
+  projectsMeta,
+  type ProjectColor,
+} from "@/app/i18n/translations";
 import { useReveal } from "@/app/hooks/useReveal";
 
 const colorMap: Record<
   ProjectColor,
-  { bg: string; cardText: string; badgeBg: string; badgeText: string; glow: string }
+  { bgColor: string; cardText: string; badgeBg: string; glow: string }
 > = {
   amber: {
-    bg: "bg-proj-amber",
+    bgColor: "oklch(0.76 0.18 52)",
     cardText: "text-[oklch(0.09_0.006_55)]",
     badgeBg: "bg-[oklch(0.09_0.006_55_/_0.18)]",
-    badgeText: "text-[oklch(0.09_0.006_55)]",
     glow: "hover:shadow-[0_12px_48px_oklch(0.76_0.18_52_/_0.35)]",
   },
   violet: {
-    bg: "bg-proj-violet",
+    bgColor: "oklch(0.62 0.22 305)",
     cardText: "text-[oklch(0.96_0.003_85)]",
     badgeBg: "bg-[oklch(0.96_0.003_85_/_0.15)]",
-    badgeText: "text-[oklch(0.96_0.003_85)]",
     glow: "hover:shadow-[0_12px_48px_oklch(0.62_0.22_305_/_0.4)]",
   },
   blue: {
-    bg: "bg-proj-blue",
+    bgColor: "oklch(0.64 0.2 250)",
     cardText: "text-[oklch(0.96_0.003_85)]",
     badgeBg: "bg-[oklch(0.96_0.003_85_/_0.15)]",
-    badgeText: "text-[oklch(0.96_0.003_85)]",
     glow: "hover:shadow-[0_12px_48px_oklch(0.64_0.2_250_/_0.4)]",
   },
   coral: {
-    bg: "bg-proj-coral",
+    bgColor: "oklch(0.62 0.22 25)",
+    cardText: "text-[oklch(0.96_0.003_85)]",
+    badgeBg: "bg-[oklch(0.96_0.003_85_/_0.15)]",
+    glow: "hover:shadow-[0_12px_48px_oklch(0.62_0.22_25_/_0.4)]",
+  },
+  lime: {
+    bgColor: "oklch(0.72 0.2 115)",
     cardText: "text-[oklch(0.09_0.006_55)]",
     badgeBg: "bg-[oklch(0.09_0.006_55_/_0.18)]",
-    badgeText: "text-[oklch(0.09_0.006_55)]",
-    glow: "hover:shadow-[0_12px_48px_oklch(0.62_0.22_25_/_0.4)]",
+    glow: "hover:shadow-[0_12px_48px_oklch(0.72_0.2_115_/_0.4)]",
+  },
+  teal: {
+    bgColor: "oklch(0.62 0.18 200)",
+    cardText: "text-[oklch(0.96_0.003_85)]",
+    badgeBg: "bg-[oklch(0.96_0.003_85_/_0.15)]",
+    glow: "hover:shadow-[0_12px_48px_oklch(0.62_0.18_200_/_0.4)]",
   },
 };
 
@@ -58,12 +69,12 @@ function ProjectCard({
       className={[
         "reveal",
         visible ? "visible" : "",
-        `reveal-delay-${index + 1}`,
+        `reveal-delay-${Math.min(index + 1, 4)}`,
         "relative overflow-hidden rounded-2xl p-7 flex flex-col justify-between min-h-[300px]",
         "transition-transform duration-200 hover:-translate-y-1",
-        colors.bg,
         colors.glow,
       ].join(" ")}
+      style={{ backgroundColor: colors.bgColor }}
     >
       {/* Background number */}
       <span

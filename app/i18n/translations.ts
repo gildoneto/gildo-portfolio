@@ -1,7 +1,13 @@
 export type Lang = "pt" | "en";
 
 export type ProjectStatus = "live" | "wip";
-export type ProjectColor = "amber" | "blue" | "violet" | "coral";
+export type ProjectColor =
+  | "amber"
+  | "blue"
+  | "violet"
+  | "coral"
+  | "lime"
+  | "teal";
 
 export interface ProjectMeta {
   id: string;
@@ -13,7 +19,8 @@ export interface ProjectMeta {
 
 export const projectsMeta: ProjectMeta[] = [
   {
-    id: "biblioteca-da-mari",
+    id: "memorial-marizeide",
+    url: "https://memorial-marizeide.vercel.app/",
     stack: ["Next.js", "Firebase", "TypeScript"],
     color: "amber",
     status: "live",
@@ -30,6 +37,27 @@ export const projectsMeta: ProjectMeta[] = [
     url: "https://band-manager-web.vercel.app/",
     stack: ["Next.js", "React Native", "Firebase"],
     color: "blue",
+    status: "wip",
+  },
+  {
+    id: "psi-nayara",
+    url: "https://psi-nayara-sales.vercel.app/",
+    stack: ["Next.js", "Tailwind CSS"],
+    color: "coral",
+    status: "live",
+  },
+  {
+    id: "daily-rotation",
+    url: "https://gildoneto.github.io/daily-rotation/",
+    stack: ["JavaScript", "GitHub Pages"],
+    color: "lime",
+    status: "live",
+  },
+  {
+    id: "coque-connecta",
+    url: "https://site-coque-staging.onrender.com/",
+    stack: ["Next.js", "Firebase"],
+    color: "teal",
     status: "wip",
   },
 ];
@@ -60,9 +88,9 @@ const translations = {
       title: "Projetos que resolvem problemas",
       viewProject: "Ver projeto",
       items: {
-        "biblioteca-da-mari": {
-          name: "Biblioteca da Mari",
-          desc: "Depois da partida de Mari, seu acervo de livros ganhou vida própria — distribuído para a comunidade que ela amava.",
+        "memorial-marizeide": {
+          name: "Memorial de Marizeide",
+          desc: "Depois da partida de Marizeide, seu acervo de livros ganhou vida própria — distribuído para a comunidade que ela amava.",
         },
         "mini-setlist": {
           name: "Mini Setlist",
@@ -71,6 +99,18 @@ const translations = {
         "band-manager": {
           name: "Band Manager",
           desc: "A parte que os músicos odeiam: contas, pagamentos e agenda. Finalmente organizado.",
+        },
+        "psi-nayara": {
+          name: "Psi Nayara Sales",
+          desc: "Uma psicóloga que precisava crescer online. Landing page focada em converter visitantes em pacientes.",
+        },
+        "daily-rotation": {
+          name: "Daily Rotation",
+          desc: "O time perdia tempo decidindo quem conduz a daily. Um sorteador instantâneo resolveu de vez.",
+        },
+        "coque-connecta": {
+          name: "Coque Connecta",
+          desc: "Trabalho voluntário para dar visibilidade à ONG Coque Connecta e à comunidade que ela serve.",
         },
       },
       status: {
@@ -93,12 +133,14 @@ const translations = {
       fields: {
         name: "Nome",
         email: "E-mail",
+        whatsapp: "WhatsApp / Celular",
         project: "O que você está construindo?",
         message: "Mensagem",
       },
       placeholders: {
         name: "Seu nome",
         email: "seu@email.com",
+        whatsapp: "(11) 99999-9999",
         project: "Descreva brevemente o projeto...",
         message: "Mais detalhes, prazo, contexto...",
       },
@@ -130,9 +172,9 @@ const translations = {
       title: "Projects that solve real problems",
       viewProject: "View project",
       items: {
-        "biblioteca-da-mari": {
-          name: "Biblioteca da Mari",
-          desc: "After Mari's passing, her personal library found new life — shared with the community she loved.",
+        "memorial-marizeide": {
+          name: "Memorial de Marizeide",
+          desc: "After Marizeide's passing, her personal library found new life — shared with the community she loved.",
         },
         "mini-setlist": {
           name: "Mini Setlist",
@@ -141,6 +183,18 @@ const translations = {
         "band-manager": {
           name: "Band Manager",
           desc: "The part musicians hate: bills, payments, and booking. Finally organized.",
+        },
+        "psi-nayara": {
+          name: "Psi Nayara Sales",
+          desc: "A psychologist who needed to grow online. A landing page built to turn visitors into patients.",
+        },
+        "daily-rotation": {
+          name: "Daily Rotation",
+          desc: "The team wasted time deciding who runs today's daily. An instant draw solved it for good.",
+        },
+        "coque-connecta": {
+          name: "Coque Connecta",
+          desc: "Volunteer work to give visibility to Coque Connecta NGO and the community it serves.",
         },
       },
       status: {
@@ -163,12 +217,14 @@ const translations = {
       fields: {
         name: "Name",
         email: "Email",
+        whatsapp: "WhatsApp / Phone",
         project: "What are you building?",
         message: "Message",
       },
       placeholders: {
         name: "Your name",
         email: "you@email.com",
+        whatsapp: "+55 (11) 99999-9999",
         project: "Briefly describe the project...",
         message: "More details, timeline, context...",
       },
