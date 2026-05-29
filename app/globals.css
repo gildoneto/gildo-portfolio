@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Surfaces */
+  --color-canvas: oklch(0.11 0.008 55);
+  --color-surface: oklch(0.16 0.006 55);
+  --color-surface-up: oklch(0.21 0.006 55);
+
+  /* Accent — Amber */
+  --color-amber: oklch(0.76 0.18 52);
+  --color-amber-dim: oklch(0.66 0.14 52);
+
+  /* Text */
+  --color-ink: oklch(0.96 0.003 85);
+  --color-ink-muted: oklch(0.62 0.005 85);
+
+  /* Code / terminal */
+  --color-terminal: oklch(0.74 0.18 145);
+
+  /* Project identity colors */
+  --color-proj-amber: oklch(0.76 0.18 52);
+  --color-proj-blue: oklch(0.64 0.2 250);
+  --color-proj-violet: oklch(0.62 0.22 305);
+  --color-proj-coral: oklch(0.62 0.22 25);
+
+  /* Fonts — resolved from next/font CSS variables injected on <html> */
+  --font-display: var(--font-barlow-condensed), Impact, sans-serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: oklch(0.11 0.008 55);
+  color: oklch(0.96 0.003 85);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Reveal on scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 600ms ease-out,
+    transform 600ms ease-out;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 320ms; }
+
+/* Terminal cursor */
+.cursor {
+  display: inline-block;
+  width: 9px;
+  height: 1.1em;
+  background-color: oklch(0.76 0.18 52);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Global focus ring */
+:focus-visible {
+  outline: 2px solid oklch(0.76 0.18 52);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
