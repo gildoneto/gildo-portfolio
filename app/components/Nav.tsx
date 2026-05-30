@@ -34,9 +34,12 @@ export function Nav() {
         {/* Logo */}
         <a
           href="#"
-          className="font-display font-extrabold text-xl tracking-tight text-ink hover:text-amber transition-colors duration-200"
+          className="font-mono font-bold text-xl hover:opacity-75 transition-opacity duration-200"
+          aria-label="Gildo Neto — início"
         >
-          Gildo Neto
+          <span className="text-ink-muted">&lt;</span>
+          <span className="text-amber">GN</span>
+          <span className="text-ink-muted">/&gt;</span>
         </a>
 
         {/* Desktop links */}

@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   title: "Gildo Neto — Desenvolvedor Full-Stack",
   description:
     "8 anos construindo plataformas web com Next.js, Firebase e TypeScript. Um desenvolvedor que entende o problema de negócio antes de escrever a primeira linha.",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
   openGraph: {
     title: "Gildo Neto — Full-Stack Developer",
     description:
