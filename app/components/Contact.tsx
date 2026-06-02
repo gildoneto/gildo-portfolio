@@ -29,6 +29,18 @@ export function Contact() {
 
     try {
       await saveContact({ name, email, whatsapp, project, message, lang });
+      
+      // Envia notificação para o Telegram via API Route do Next.js
+      fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, whatsapp, project, message }),
+      }).catch((err) => {
+        console.error("Falha ao enviar notificação de contato:", err);
+      });
+
       setStatus("success");
       formRef.current?.reset();
     } catch {

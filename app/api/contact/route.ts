@@ -41,5 +41,39 @@ export async function POST(request: Request) {
 
   console.log("[contact] new message", { name, email, whatsapp, project, message });
 
+  // Send Telegram notification
+  const telegramToken = process.env.TELEGRAM_BOT_TOKEN;
+  const chatId = process.env.TELEGRAM_CHAT_ID;
+
+  if (telegramToken && chatId) {
+    try {
+      const text = `🔔 *Novo Contato no Portfólio!*\n\n` +
+                   `👤 *Nome:* ${name}\n` +
+                   `📧 *Email:* ${email}\n` +
+                   `📱 *WhatsApp:* ${whatsapp || "Não informado"}\n` +
+                   `💼 *Projeto:* ${project}\n\n` +
+                   `💬 *Mensagem:* ${message || "Sem mensagem"}`;
+
+      const response = await fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: text,
+          parse_mode: "Markdown",
+        }),
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error("[contact] Telegram API responded with error:", errorText);
+      }
+    } catch (err) {
+      console.error("[contact] Failed to send Telegram notification:", err);
+    }
+  } else {
+    console.warn("[contact] Telegram credentials not configured in environment variables");
+  }
+
   return NextResponse.json({ success: true });
 }
