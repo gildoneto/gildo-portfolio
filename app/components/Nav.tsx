@@ -19,6 +19,7 @@ export function Nav() {
   const navLinks = [
     { href: "#projects", label: tx.projects },
     { href: "#stack", label: tx.stack },
+    { href: "/resume", label: tx.resume },
   ];
 
   return (

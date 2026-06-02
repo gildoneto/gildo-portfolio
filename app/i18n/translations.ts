@@ -76,6 +76,7 @@ const translations = {
       stack: "Stack",
       contact: "Contato",
       langSwitch: "EN",
+      resume: "Currículo",
     },
     hero: {
       line1: "DO PROBLEMA",
@@ -153,6 +154,16 @@ const translations = {
       made: "Feito com",
       by: "por Gildo Neto",
     },
+    resume: {
+      download: "Baixar PDF",
+      summary: "Resumo Profissional",
+      experience: "Experiência",
+      skills: "Habilidades",
+      education: "Formação",
+      certifications: "Certificações",
+      present: "Presente",
+      back: "← Voltar ao site",
+    },
   },
   en: {
     nav: {
@@ -160,6 +171,7 @@ const translations = {
       stack: "Stack",
       contact: "Contact",
       langSwitch: "PT",
+      resume: "Resume",
     },
     hero: {
       line1: "FROM PROBLEM",
@@ -236,6 +248,16 @@ const translations = {
     footer: {
       made: "Made with",
       by: "by Gildo Neto",
+    },
+    resume: {
+      download: "Download PDF",
+      summary: "Professional Summary",
+      experience: "Experience",
+      skills: "Skills",
+      education: "Education",
+      certifications: "Certifications",
+      present: "Present",
+      back: "← Back to site",
     },
   },
 } as const;
