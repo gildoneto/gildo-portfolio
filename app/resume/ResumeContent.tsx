@@ -120,12 +120,6 @@ export function ResumeContent() {
               gildoneto@hotmail.com
             </a>
             <a
-              href="tel:+5581998642055"
-              className="font-mono text-xs text-ink-muted hover:text-amber transition-colors"
-            >
-              +55 (81) 9-9864-2055
-            </a>
-            <a
               href="https://www.linkedin.com/in/gildoneto/"
               target="_blank"
               rel="noopener noreferrer"

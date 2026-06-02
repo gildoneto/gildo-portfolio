@@ -316,7 +316,6 @@ export function ResumePDF({ lang }: { lang: Lang }) {
             <Link src="mailto:gildoneto@hotmail.com" style={s.contactLink}>
               gildoneto@hotmail.com
             </Link>
-            <Text style={s.contactItem}>+55 (81) 9-9864-2055</Text>
             <Link src="https://www.linkedin.com/in/gildoneto/" style={s.contactLink}>
               linkedin.com/in/gildoneto
             </Link>
