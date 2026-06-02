@@ -38,7 +38,7 @@ export function Nav() {
           aria-label="Gildo Neto — início"
         >
           <span className="text-ink-muted">&lt;</span>
-          <span className="text-amber">GN</span>
+          <span className="text-amber">Gildo Neto </span>
           <span className="text-ink-muted">/&gt;</span>
         </a>
 
