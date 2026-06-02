@@ -41,6 +41,9 @@ export interface Education {
 export interface Certification {
   title: string;
   issuer: string;
+  url?: string;
+  authNote?: string; // authentication/verification number (e.g. UFMG)
+  image?: string;   // path relative to /public, e.g. "/certifications/azure-fundamentals.jpg"
 }
 
 // ─── Experiences ─────────────────────────────────────────────────────────────
@@ -184,15 +187,67 @@ export const EDUCATION: Education[] = [
 // ─── Certifications ───────────────────────────────────────────────────────────
 
 export const CERTIFICATIONS: Certification[] = [
-  { title: "Azure Fundamentals",                               issuer: "Microsoft" },
-  { title: "JavaScript Algorithms and Data Structures",        issuer: "freeCodeCamp" },
-  { title: "Responsive Web Design",                            issuer: "freeCodeCamp" },
-  { title: "Entendendo TypeScript",                            issuer: "Udemy" },
-  { title: "Build Dynamic Websites With JavaScript (1 & 2)",  issuer: "Udemy" },
-  { title: "Learn and Understand NodeJS",                      issuer: "Udemy" },
-  { title: "CSS Avançado: Sass, CSS Grid & CSS Modules",       issuer: "Udemy" },
-  { title: "Linux Administration",                             issuer: "Udemy" },
-  { title: "Extensão em Teste de Software",                    issuer: "UFMG" },
+  {
+    title: "Azure Fundamentals",
+    issuer: "Microsoft",
+    url: "https://www.credly.com/badges/3232eb66-acb5-406c-9519-743c42d476fa",
+    image: "/certifications/azure-fundamentals.png",
+  },
+  {
+    title: "JavaScript Algorithms and Data Structures",
+    issuer: "freeCodeCamp",
+    url: "https://www.freecodecamp.org/certification/gildoneto/javascript-algorithms-and-data-structures",
+    image: "/certifications/javascript-algorithms-and-data-structures.png",
+  },
+  {
+    title: "Responsive Web Design",
+    issuer: "freeCodeCamp",
+    url: "https://www.freecodecamp.org/certification/gildoneto/responsive-web-design",
+    image: "/certifications/responsive-web-design.png",
+  },
+  {
+    title: "Entendendo TypeScript",
+    issuer: "Udemy",
+    url: "https://www.udemy.com/certificate/UC-506e0abd-feae-449a-b2f0-aa37e6c18712/",
+    image: "/certifications/entendendo-typescript.png",
+  },
+  {
+    title: "Build Dynamic Websites With JavaScript – Part 1",
+    issuer: "Udemy",
+    url: "https://www.udemy.com/certificate/UC-70709583-c061-4568-a539-3d50545fe0e5/",
+    image: "/certifications/build-websites-js-part1.png",
+  },
+  {
+    title: "Build Dynamic Websites With JavaScript – Part 2",
+    issuer: "Udemy",
+    url: "https://www.udemy.com/certificate/UC-4fe77e49-d92e-475d-b4f2-f40e23373fea/",
+    image: "/certifications/build-websites-js-part2.png",
+  },
+  {
+    title: "Learn and Understand NodeJS",
+    issuer: "Udemy",
+    url: "https://www.udemy.com/certificate/UC-9edcc1d5-f42d-41b3-95a7-c88276dda167/",
+    image: "/certifications/learn-understand-js.png",
+  },
+  {
+    title: "CSS Avançado: Sass, CSS Grid & CSS Modules",
+    issuer: "Udemy",
+    url: "https://www.udemy.com/certificate/UC-cb0ae614-dc56-4d54-aa31-1962a1cb978f/",
+    image: "/certifications/css-avancado.png",
+  },
+  {
+    title: "Linux Administration",
+    issuer: "Udemy",
+    url: "https://www.udemy.com/certificate/UC-cdde6132-a659-45a0-a738-c0a97d421e88/",
+    image: "/certifications/linux-administration.png",
+  },
+  {
+    title: "Extensão em Teste de Software",
+    issuer: "UFMG",
+    url: "https://sistemas.ufmg.br/cediex/autenticacao/autenticarCertificado.seam",
+    authNote: "1604.0809.0606.0514.3880.1410",
+    image: "/certifications/extensao-teste-software.png",
+  },
 ];
 
 // ─── Summary bilingual ────────────────────────────────────────────────────────

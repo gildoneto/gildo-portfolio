@@ -236,19 +236,33 @@ const s = StyleSheet.create({
     height: 4,
     borderRadius: 2,
     backgroundColor: AMBER,
-    marginTop: 2.5,
+    marginTop: 3,
     marginRight: 6,
+  },
+  certTitleRow: {
+    flexDirection: "row",
+    alignItems: "baseline",
   },
   certTitle: {
     fontSize: 9,
     color: INK,
-    flex: 1,
+  },
+  certTitleLink: {
+    fontSize: 9,
+    color: AMBER,
+    textDecoration: "none",
   },
   certIssuer: {
     fontFamily: "Courier",
     fontSize: 7.5,
     color: MUTED,
     marginLeft: 4,
+  },
+  certAuth: {
+    fontFamily: "Courier",
+    fontSize: 7,
+    color: MUTED,
+    marginTop: 1,
   },
 });
 
@@ -363,12 +377,6 @@ export function ResumePDF({ lang }: { lang: Lang }) {
                 ))}
               </View>
 
-              {/* Tech badges */}
-              <View style={s.techRow}>
-                {exp.tech.map((t) => (
-                  <Text key={t} style={s.techBadge}>{t}</Text>
-                ))}
-              </View>
             </View>
           ))}
         </Section>
@@ -406,8 +414,21 @@ export function ResumePDF({ lang }: { lang: Lang }) {
           {CERTIFICATIONS.map((cert) => (
             <View key={cert.title} style={s.certItem}>
               <View style={s.certDot} />
-              <Text style={s.certTitle}>{cert.title}</Text>
-              <Text style={s.certIssuer}>· {cert.issuer}</Text>
+              <View style={{ flex: 1 }}>
+                <View style={s.certTitleRow}>
+                  {cert.url ? (
+                    <Link src={cert.url} style={s.certTitleLink}>
+                      {cert.title}
+                    </Link>
+                  ) : (
+                    <Text style={s.certTitle}>{cert.title}</Text>
+                  )}
+                  <Text style={s.certIssuer}>· {cert.issuer}</Text>
+                </View>
+                {cert.authNote && (
+                  <Text style={s.certAuth}>auth: {cert.authNote}</Text>
+                )}
+              </View>
             </View>
           ))}
         </Section>
