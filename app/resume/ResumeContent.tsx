@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { track } from "@vercel/analytics";
 import { useLang } from "@/app/i18n/context";
 import translations from "@/app/i18n/translations";
 import {
@@ -67,6 +68,7 @@ function DownloadButton({
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
+      track("resume_download", { lang });
       setState("idle");
     } catch {
       setState("error");
