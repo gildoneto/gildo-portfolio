@@ -55,7 +55,7 @@ export const projectsMeta: ProjectMeta[] = [
   },
   {
     id: "coque-connecta",
-    url: "https://site-coque-staging.onrender.com/",
+    url: "https://www.coqueconnecta.ong.br/",
     stack: ["Next.js", "Firebase"],
     color: "teal",
     status: "wip",
